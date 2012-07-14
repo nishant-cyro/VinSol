@@ -1,0 +1,32 @@
+<html>
+  <head>
+     <link rel="stylesheet" type="text/css" href="http://dl.dropbox.com/u/88337953/jcss7.css" />
+
+     <script src="http://dl.dropbox.com/u/88337953/jjs7.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <select id="section1" size="4" multiple="multiple">
+        <option value="India">India</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="UK">UK</option>
+        <option value="USA">USA</option>
+        <option value="West Indies">West Indies</option>
+        <option value="Sri Lanka">Sri Lanka</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Bermuda">Bermuda</option>
+      </select>
+    </div>
+
+    <div>
+       <input type="button" id="add" value="Add" onclick='addAndRemove("section1","section2")'/>
+       <input type="button" id="remove" value="Remove" onclick='addAndRemove("section2","section1")'/>
+    </div>
+
+    <div>
+      <select id="section2" size="4" multiple="multiple">
+      </select>
+    </div>
+  </body>
+</html>

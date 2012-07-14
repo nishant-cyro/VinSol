@@ -1,0 +1,25 @@
+mysql> CREATE TABLE Users(id varchar(3) primary key, user_name varchar(10), user_type enum('normal', 'admin') not null);
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> CREATE TABLE Category(id varchar(3) primary key, cat_title varchar(10));
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> CREATE TABLE Articles(id varchar(3) primary key, art_title varchar(50), cat_id varchar(3), user_id varchar(3), FOREIGN KEY (cat_id) references Category (id), FOREIGN KEY (user_id) references Users (id) );
+Query OK, 0 rows affected (0.23 sec)
+
+mysql> CREATE TABLE Comments(id varchar(3) primary key, commment varchar(100), art_id varchar(3), commenter_id varchar(3), FOREIGN KEY (art_id) references Articles (id), FOREIGN KEY (commenter_id) references Users (id) );
+Query OK, 0 rows affected (0.22 sec)
+
+
+mysql> select Comments.id, Comments.commment, Articles.art_title, Users.user_name  from Comments, Articles, Users where Comments.art_id = Articles.id and Comments.commenter_id = Users.id and Comments.commenter_id='u3';
++-----+-------------------------------------------------------+-----------------------+------------+
+| id  | commment                                              | art_title             | user_name  |
++-----+-------------------------------------------------------+-----------------------+------------+
+| cm1 | But i didnt agree with the consequences you mentioned | Recession Again??     | Rohit Mehr |
+| cm8 | It has a future                                       | The future of ZigBee  | Rohit Mehr |
+| cm6 | Good Contrast                                         | Science and Art       | Rohit Mehr |
+| cm7 | But i totally agree                                   | Science and Art       | Rohit Mehr |
+| cm4 | No Comment                                            | Why kasab not hanged? | Rohit Mehr |
++-----+-------------------------------------------------------+-----------------------+------------+
+5 rows in set (0.00 sec)
+

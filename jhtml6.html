@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+         <link rel="stylesheet" type="text/css" href="http://dl.dropbox.com/u/88337953/jcss6.css" />
+         <script src="http://dl.dropbox.com/u/88337953/jjs6.js"></script>
+   </head>
+
+   <body>
+     <form id="current_form" method="post" action="xxx.html" onsubmit="return validateForm()">
+        <p id="heading">Registration Form</p>
+           <table>
+              <tr><td><b>Login Id</b></td><td><input type="text" id="field1" name="Login Id"/></td></tr>
+              <tr><td><b>Email</b></td><td><input type="text" id="field2" name="Email"/></td></tr>
+              <tr><td><b>Name</b></td><td><input type="text" id="field3" name="Name"/></td></tr>
+              <tr><td><b>Timezone</b></td><td><select>
+                 <option value="gmt">GMT</option>
+              </select></td></tr>
+              <tr><td><b>Home Page</b></td><td><input type="text" id="field4" name="Home Page"/></td></tr>
+           </table>
+           <b>About me</b><br />
+           <textarea id="field5" rows="10" cols="53"></textarea><br />
+           <input type="checkbox" id="field6"/>
+           <span><b>Receive notification of comments</b></span><br />
+           <span class="cen">You will be sent an email when someone post or comments to your blog or album.</span><br />
+           <p class="cen">Your Password will be mailed to you.</p>
+           <input id="sub" type="submit" value="Go" />
+      </form>
+   </body>
+</html>

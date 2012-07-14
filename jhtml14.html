@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src = "http://dl.dropbox.com/u/88337953/jjs14.js"></script>
+    <link rel = "stylesheet" type = "text/css" href = "http://dl.dropbox.com/u/88337953/jcss14.css" />
+  </head>
+  <body>
+    <ul>
+     <li><a href = "#products" id="carts1" onclick="appear(1,2)">Products</a></li>
+     <li><a href = "#mycarts" id="carts2" onclick="appear(2,1)">My Carts(0)</a></li>
+    </ul>
+
+    <table id="mytable">
+    <tr><td>Search:<input type="text" /></td><td><input type="button" value="Search"/></td><td><input type="button" value="Clear"/></td><td>Category:<select><option value="all">All</option></select></td></tr>
+    </table>
+
+    <table id="table1">
+        <tr><td><img src="http://dl.dropbox.com/u/88337953/images1.jpeg" id="img1"/><p class="title" id="title1">Apple Macbook Pro</p><p class="category">Category:Computers</p><p class="about">The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.</p><p class="price">Price:<span id="price1">2299.99</span></p></td><td>Quantity:<input type = "text" id="quantity1" size="3" /></td><td><input type="button" id="1" value="Add Cart" onclick="addCart(this)"/></td></tr>
+
+        <tr><td><img src="http://dl.dropbox.com/u/88337953/images2.jpeg" id="img2" /><p class="title" id="title2">Sony VAIO</p><p class="category">Category:Computers</p><p class="about">Weighing in at just 2.84 pounds and offering a sleek,durable carbon-fibre case in black.</p><p class="price">Price:<span id="price2">2699.99</span></p></td><td>Quantity:<input type = "text" id="quantity2" size="3"/></td><td><input type="button" id="2" value="Add Cart" onclick="addCart(this)"/></td></tr>
+
+        <tr><td><img src="http://dl.dropbox.com/u/88337953/images.jpeg" id="img3" /><p class="title" id="title3">Canon Digital Rebel XT</p><p class = "category">Category:Cameras</p><p class="about">The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.</p><p class="price">Price:<span id="price3">550</span></p></td><td>Quantity:<input type = "text" id="quantity3" size="3"/></td><td><input type="button" id="3" value="Add Cart" onclick="addCart(this)"/></td></tr>
+    </table>
+
+
+    <table id="table2">
+        <tr><th>Products</th><th>Price</th><th>Quantity</th><th>Subtotal</th><th></th></tr>
+    </table>
+
+    <div id ="footer">
+        Total:<input type="text" id="total" disabled="true" value="0.00"/><input type="button" value="Checkout" />
+    </div>
+  </body>
+</html>

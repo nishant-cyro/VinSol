@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+         <link rel="stylesheet" type="text/css" href = "http://dl.dropbox.com/u/88337953/jcss9.css" />
+         <script src="http://dl.dropbox.com/u/88337953/jjs9.js"></script>
+   </head>
+
+   <body>
+     <form id="current_form" method="post" action="xxx.html" onsubmit="return validateForm()">
+        <p id="heading">Registration Form</p>
+           <table>
+              <tr><td><b>Login Id</b></td><td><input type="text" id="login"/></td></tr>
+              <tr><td><b>Email</b></td><td><input type="text" id="email"/></td></tr>
+              <tr><td><b>Name</b></td><td><input type="text" id="name"/></td></tr>
+              <tr><td><b>Timezone</b></td><td><select>
+                 <option value="gmt">GMT</option>
+              </select></td></tr>
+              <tr><td><b>Home Page</b></td><td><input type="text" id="home"/></td></tr>
+           </table>
+           <b>About me</b><br />
+           <textarea id="aboutme" rows="10" cols="53"></textarea><br />
+           <input type="checkbox" id="receive"/>
+           <span><b>Receive notification of comments</b></span><br />
+           <span class="cen">You will be sent an email when someone post or comments to your blog or album.</span><br />
+           <p class="cen">Your Password will be mailed to you.</p>
+           <input id="sub" type="submit" value="Go" />
+      </form>
+   </body>
+</html>

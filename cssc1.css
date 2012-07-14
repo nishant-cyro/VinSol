@@ -1,0 +1,104 @@
+.menubar
+{
+  margin:0px;
+  padding:0px;
+}
+
+.menubar li
+{
+  list-style-type:none;
+}
+
+.menubar>li
+{
+  border-bottom:1px solid black;
+  display:block;
+  float:left;
+  padding:5px 1px; 
+}
+
+.menubar>li:hover
+{
+ padding: 5px 0px;
+}
+
+.menubar>li>a:link,.menubar>li>a:visited
+{
+  padding:5px 20px;
+  height:27px;
+  color:black;
+  margin:2px;
+  text-decoration:none;
+  background-color:#cfcfcf;
+  font:italic 18px "Georgia";
+}
+
+.menubar>li>a:first-child
+{
+  margin-left:0px;
+}
+
+.menubar>li>a:hover
+{
+  background-color:white;
+}
+
+ 
+.menubar ul
+{
+  display:none;
+}      
+
+li:hover>a:link,li:hover>a:visited
+{
+  background-color:white;
+}
+
+.menubar>li:hover
+{
+  border:1px solid #6d6d6d;
+  border-bottom:none;
+}
+
+li:hover ul
+{
+  margin-top:6px;
+  position:absolute;
+  display:block;
+  border:1px solid #6d6d6d;
+  border-top:none;
+  width:200px;
+  padding:10px;
+  background-color:white;
+}
+
+li:hover ul#last
+{
+  margin-left:-87px;
+}
+
+li:hover>a
+{
+  width:inherit;
+}
+li:hover>ul>li>a:link,li:hover>ul>li>a:visited
+{
+  display:block;
+  font:italic 14px "Georgia",arial,sans-serif;
+  color:black;
+  text-decoration:none;
+  padding:5px 0px;
+  border-bottom:2px solid #cfcfcf;
+  color:black;
+}
+
+li:hover>ul>li>a:hover
+{
+  color:#bd0707;
+}
+
+li:hover>ul>li>a.nb:link,li:hover>ul>li>a.nb:visited
+{
+  border-bottom:none;
+}
+

@@ -1,0 +1,72 @@
+mysql> select * from TASTES;
++-------+---------+
+| Name  | Filling |
++-------+---------+
+| Brown | Beef    |
+| Brown | Ham     |
+| Brown | Turkey  |
+| Green | Beef    |
+| Green | Cheese  |
+| Green | Turkey  |
+| Jones | Cheese  |
++-------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select * from LOCATIONS;
++-----------+---------+---------------+
+| Lname     | Phone   | Address       |
++-----------+---------+---------------+
+| Buttery   | 7023421 | College St    |
+| Lincoln   | 6834523 | Lincoln Place |
+| O'Neill's | 6742134 | Pearse St     |
+| Old Nag   | 7678132 | Dame St       |
++-----------+---------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from SANDWICHES;
++-----------+-------+---------+--------+
+| Location  | Bread | Filling | Price  |
++-----------+-------+---------+--------+
+| Lincoln   | Rye   | Ham     | 1.2500 |
+| O'Neill's | White | Cheese  | 1.2000 |
+| O'Neill's | Whole | Ham     | 1.2500 |
+| Old Nag   | Rye   | Beef    | 1.3500 |
+| Buttery   | White | Cheese  | 1.0000 |
+| O'Neill's | White | Turkey  | 1.3500 |
+| Buttery   | White | Ham     | 1.1000 |
+| Lincoln   | Rye   | Beef    | 1.3500 |
+| Lincoln   | White | Ham     | 1.3000 |
+| Old Nag   | Rye   | Ham     | 1.4000 |
++-----------+-------+---------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select Location from SANDWICHES where Filling in (select Filling from TASTES where Name = 'Jones');
++-----------+
+| Location  |
++-----------+
+| Buttery   |
+| O'Neill's |
++-----------+
+2 rows in set (0.00 sec)
+
+mysql> select Location from TASTES left join SANDWICHES on TASTES.Filling = SANDWICHES.FIlling where TASTES.name = 'Jones';
++-----------+
+| Location  |
++-----------+
+| Buttery   |
+| O'Neill's |
++-----------+
+2 rows in set (0.00 sec)
+
+
+mysql> select SANDWICHES.Location, count(distinct(TASTES.Name)) from SANDWICHES left join TASTES on SANDWICHES.Filling  = TASTES.Filling group by Location;
++-----------+------------------------------+
+| Location  | count(distinct(TASTES.Name)) |
++-----------+------------------------------+
+| Buttery   |                            3 |
+| Lincoln   |                            2 |
+| O'Neill's |                            3 |
+| Old Nag   |                            2 |
++-----------+------------------------------+
+4 rows in set (0.00 sec)
+

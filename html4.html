@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <link rel="stylesheet" type="text/css" href="http://dl.dropbox.com/u/88337953/css4.css" />
+    
+
+    <script src="http://dl.dropbox.com/u/88337953/js4.js"></script>
+  </head>
+  
+  <body>
+    <div>
+      <ul>
+        <li><input type="checkbox" name="color" onclick="displayChildBoxes(this)"/>Colors
+           <ul id="color" style="display:none;">
+              <li><input type="checkbox" class="color"/>Red</li>
+              <li><input type="checkbox" class="color"/>Yellow</li>
+              <li><input type="checkbox" class="color"/>Green</li>
+             <li><input type="checkbox" class="color"/>Blue</li>
+          </ul>
+        </li>
+
+        <li><input type="checkbox" name="movie" onclick="displayChildBoxes(this)"/>Movies
+           <ul id="movie" style="display:none;">
+              <li><input type="checkbox" class="movie"/>Dar</li>
+              <li><input type="checkbox" class="movie"/>Sir</li>
+           </ul>
+        </li>
+
+       <li><input type="checkbox" name="drink" onclick="displayChildBoxes(this)"/>Drinks
+          <ul id="drink" style="display:none;">
+              <li><input type="checkbox" class="drink"/>Pepsi</li>
+              <li><input type="checkbox" class="drink"/>Coke</li>
+              <li><input type="checkbox" class="drink"/>Dew</li>
+          </ul>
+       </li>
+
+       <li><input type="checkbox" name="bike" onclick="displayChildBoxes(this)"/>Bikes
+          <ul id="bike" style="display:none;">
+              <li><input type="checkbox" class="bike"/>V-Rod</li>
+              <li><input type="checkbox" class="bike"/>Pulsar</li>
+              <li><input type="checkbox" class="bike"/>CBZ</li>
+         </ul>
+       </li>
+    </div>
+ </body>
+</html>

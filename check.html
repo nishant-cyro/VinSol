@@ -1,0 +1,33 @@
+<html>
+<head>
+<script type = "text/javascript">
+function check()
+{
+var x = document.getElementsByTagName("input");
+for(var i=0;i<x.length;i++)
+{
+x[i].checked = true;
+}
+}
+
+function none()
+{
+var x = document.getElementsByTagName("input");
+for(var i=0;i<x.length;i++)
+{
+x[i].checked = false;
+}
+}
+</script>
+</head>
+
+<body>
+<input type = "checkbox" name = "red" />Red<br />
+<input type = "checkbox" name = "green" />Green<br />
+<input type = "checkbox" name = "blue" />Blue<br />
+<input type = "checkbox" name = "white" />White<br />
+<input type = "checkbox" name = "black" />Black<br />
+
+<a  onclick = "check()"> Check </a>
+<a  onclick = "none()"> None </a>
+</body>

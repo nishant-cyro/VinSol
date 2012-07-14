@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <style type = "text/css" />
+      p{font-size:40px;}
+      html{background-color:lightblue;}
+    </style>
+    <p align="center"><b>HTML Form Exercise</b></p>
+  </head>
+
+  <body>
+  <br /> <br />
+
+    <form>
+    <b> Contact Form</b>
+      <table>
+         <tr><td>Your Name*:</td><td> <input type = "text" name = "yname" /></td></tr><br/>
+         <tr><td>Email* :</td> <td><input type = "text" name = "mail" style ="background-color:yellow" /></td></tr><br/>
+         <tr><td>Phone Number* :</td><td> <input type = "text" name = "phone" style ="background-color:yellow" /></td></tr><br/>
+         <tr><td>Website* :</td><td> <input type = "text" name = "web" value = "http://" size = "50"/></td></tr>
+      </table>
+
+      <br />
+
+      Comments*:<br />
+      <input type = "text" name = "cmmnt" size = "30" style = "height:80px"/><br />
+
+      <br />
+      <b> Test Field</b> <br />
+      Your Name: <input type = "text" name = "urname" style ="background-color:yellow"/><br />
+
+      <br />
+      <b> Password Field </b><br />
+       Password: <input type = "password" name = "pass" /><br />
+
+      <br />
+      <b> Radio Button </b><br />
+      Do you like Pizza?<br />
+      <input type="radio" name = "pizza" value = "yes" /> Yes <br />
+      <input type="radio" name = "pizza" value = "no" /> No <br />
+      <input type="radio" name = "pizza" value = "maybe" /> Maybe <br />
+      <input type="radio" name = "pizza" value = "never" /> Never Tried <br />
+
+      <br />
+      <b> Check Box </b> <br />
+      <input type = "checkbox" name = "check" /> check this box if you like our service <br />
+
+      <br /> 
+      <b> Test Area </b><br />
+      Anything you would like to say<br />
+      <textarea rows = "3" cols = "40" />
+      </textarea>
+      <br />
+
+      <br />
+      <b> I Like </b><br /><br />
+
+      <select size="5">
+          <option value ="mush"> mushrooms </option>
+          <option value ="pepper"> green peppers </option>
+          <option value ="onion"> onions </option>
+          <option value ="tomato"> tomatoes </option>
+          <option value ="olive"> olives </option>
+      </select> <br />
+
+      <br />
+      <b> Menu </b><br />
+      Your Favorite Color<br />
+
+      <select>
+          <option value ="red"> red </option>
+          <option value ="blue"> blue </option>
+          <option value ="green"> green </option>
+      </select> <br />
+
+      <br />
+      <b> Attatch File </b><br />
+      <input type = "file" name = "fb" value = "Browse" /> <br />
+      <br />
+
+      <b> Buttons </b> <br />
+      <input type = "submit" value = "Submit"/>
+      <input type = "reset" value = "Reset"/>
+    </form>
+  </body>
+</html>
+

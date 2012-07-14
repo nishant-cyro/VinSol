@@ -1,0 +1,173 @@
+body
+{
+  margin:0px;
+  padding:0px;
+}
+
+ul
+{
+  height:50px;
+  background-color:gray;
+  padding-top:5px;
+  margin-bottom:-9px;
+  padding-bottom:-10px;
+  width:960px;
+}
+
+li
+{
+  list-style-type:none;
+  z-index:3px;
+}
+
+li a
+{
+  background-color:silver;
+  border:1px solid black;
+  padding:10px 10px 10px 60px;
+  width:150px;
+  color:black;
+  border-bottom:none;
+  display:block;
+  float:left;
+  text-decoration:none;
+  margin-left:10px;
+}
+
+li a:focus
+{
+  background-color:gray;
+}
+#table1, #mytable
+{
+  display:block;
+  clear:both;
+}
+
+#table2
+{
+  display:none;
+  clear:both;
+}
+
+
+#table2
+{
+  width:1000px;
+  height:400px;
+  overflow:auto;
+  border:1px solid black;
+}
+
+#table2 tr
+{
+  background-color:gray;
+  text-align:left;
+}
+
+#table2 td,th
+{
+  border:1px solid black;
+  border-bottom:none;
+  border-top:none;
+  width:150px;
+}
+
+#table2 input[type="text"]
+{
+  size:10px;
+}
+
+#table2 td:first-child,th:first-child
+{
+  width:400px;
+}
+
+#mytable
+{
+  padding:5px;
+  border:1px solid black;
+  border-left:none;
+  border-right:none;
+  background-color:gray;
+  z-index:2px;
+  width:1000px;
+  margin-top:0;
+}
+
+#table1
+{
+  width:1000px;
+  border:1px solid black;
+  margin:0px;
+  height:400px;
+  overflow:auto;
+}
+
+#table1 tr
+{
+  background-color:gray;
+  margin-top:20px;
+  width:990px;
+}
+
+#table1 tr>td,tr>th
+{
+  width:195px;
+}
+
+#table1 td:first-child,th:first-child
+{
+  width:600px;
+  font-size:12px;
+}
+
+input:active[type="button"]
+{
+  background-color:black;
+  color:white;
+}
+.title
+{
+  font-size:16px;
+  font-weight:bold;
+  color:black;
+}
+img
+{
+  float:left;
+}
+.category
+{
+  font-size:16px;
+  color:black;
+}
+
+.price
+{
+  font-size:16px;
+  font-weight:bold;
+  color:black;
+}
+
+#footer
+{
+  width:500px;
+  border:1px solid black;
+  z-index:+2px;
+  padding-left:500px;
+  background-color:gray;
+  height:50px;
+  padding-top:15px;
+}
+
+#footer input[type="button"]
+{
+  color:white;
+  background-color:black;
+  font-weight:bolder;
+  width:150px;
+  height:30px;
+  margin-left:50px;
+}
+

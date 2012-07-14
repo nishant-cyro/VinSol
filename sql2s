@@ -1,0 +1,25 @@
+mysql> create database vtapp;
+
+mysql> create user 'vtapp'@'localhost';
+
+mysql> show grants for 'vtapp'@'localhost';
++-------------------------------------------+
+| Grants for vtapp@localhost                |
++-------------------------------------------+
+| GRANT USAGE ON *.* TO 'vtapp'@'localhost' |
++-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> GRANT SELECT, INSERT, CREATE, ALTER, DROP ON vtapp.* TO 'vtapp_user'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for 'vtapp_user'@'localhost';
++------------------------------------------------------------------------------------+
+| Grants for vtapp_user@localhost                                                    |
++------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'vtapp_user'@'localhost'                                     |
+| GRANT SELECT, INSERT, CREATE, DROP, ALTER ON `vtapp`.* TO 'vtapp_user'@'localhost' |
++------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+

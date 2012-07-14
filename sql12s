@@ -1,0 +1,80 @@
+mysql> select * from Branches;
++-------+---------------+---------------+
+| BCode | Librarian     | Address       |
++-------+---------------+---------------+
+| B1    | John Smith    | 2 Anglesca Rd |
+| B2    | Mary Jones    | 34 Pearse St  |
+| B3    | Francis Owens | Grange X      |
++-------+---------------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Titles;
++---------------------+------------+------------+
+| Title               | Author     | Publisher  |
++---------------------+------------+------------+
+| A History of Dublin | David Litt | Wiley      |
+| Computers           | Blaise Pas | Applewoods |
+| How to Fish         | Anny Fly   | Stop Press |
+| Susannah            | Ann Brown  | Macmillan  |
+| The Wife            | Ann Brown  | Macmillan  |
++---------------------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Holdings;
++--------+---------------------+--------+
+| Branch | Title               | copies |
++--------+---------------------+--------+
+| B1     | A History of Dublin |      1 |
+| B1     | How to Fish         |      2 |
+| B1     | Susannah            |      3 |
+| B2     | Computers           |      2 |
+| B2     | How to Fish         |      4 |
+| B2     | The Wife            |      3 |
+| B3     | A History of Dublin |      1 |
+| B3     | Computers           |      4 |
+| B3     | Susannah            |      3 |
+| B3     | The Wife            |      1 |
++--------+---------------------+--------+
+10 rows in set (0.00 sec)
+
+
+
+mysql> select Title from Titles where Publisher = 'Macmillan';
++----------+
+| Title    |
++----------+
+| Susannah |
+| The Wife |
++----------+
+2 rows in set (0.03 sec)
+
+mysql> select distinct(Branch) from Holdings where Title in (select Title from Titles where Author = 'Ann Brown'); 
++--------+
+| Branch |
++--------+
+| B1     |
+| B2     |
+| B3     |
++--------+
+3 rows in set (0.04 sec)
+
+mysql> select distinct(Branch) from Holdings left join Titles ON Holdings.Title = Titles.Title where Author = 'Ann Brown'; 
++--------+
+| Branch |
++--------+
+| B1     |
+| B3     |
+| B2     |
++--------+
+3 rows in set (0.04 sec)
+
+mysql> select Branch, sum(copies) from Holdings group by Branch;
++--------+-------------+
+| Branch | sum(copies) |
++--------+-------------+
+| B1     |           6 |
+| B2     |           9 |
+| B3     |           9 |
++--------+-------------+
+3 rows in set (0.04 sec)
+

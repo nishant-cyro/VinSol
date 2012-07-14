@@ -1,0 +1,56 @@
+<html>
+<head>
+<script type = "text/javascript">
+var count =0;
+function check1(e)
+{
+if(e.checked == true) count++;
+else count--;
+if(document.getElementById("never").checked == true) document.getElementById("never").checked = false;
+if(count == 4)
+{
+e.checked = false;
+count--;
+var z = finding();
+alert("Only 3 days can be selected. You have already selected " + z );
+}
+}
+
+function finding()
+{
+var a = new Array();
+var x = document.getElementsByTagName("input");
+for(var i=0; i<x.length-1;i++)
+{
+if(x[i].checked == true)
+{
+a[a.length] = x[i].name;
+}
+}
+return a[0] + ", " + a[1] + " and " + a[2];
+}
+
+function none()
+{
+if(document.getElementById("never").checked == true){
+count = 0;
+var x = document.getElementsByTagName("input");
+for(var i=0;i<x.length-1;i++)
+{
+x[i].checked = false;
+}
+}}
+</script>
+</head>
+
+<body>
+<input type = "checkbox" name = "Sunday" onClick="check1(this)"  />Sunday<br />
+<input type = "checkbox" name = "Monday"  onClick="check1(this)"/>Monday<br />
+<input type = "checkbox" name = "Tuesday" onClick="check1(this)"/>Tuesday<br />
+<input type = "checkbox" name = "Wednesday" onClick="check1(this)"/>Wednesday<br />
+<input type = "checkbox" name = "Thursday"  onClick="check1(this)"/>Thursday<br />
+<input type = "checkbox" name = "Friday"  onClick="check1(this)"/>Friday<br />
+<input type = "checkbox" name = "Saturday" onClick="check1(this)"/>Saturday<br />
+<input type = "checkbox" name = "none" id = "never" onClick="none()"/>None<br />
+</body>
+</html>

@@ -1,0 +1,6 @@
+nishant@nishant-HP-430-Notebook-PC ~ $ mysqldump -u root -p nishant_db > accounts.sql;
+
+nishant@nishant-HP-430-Notebook-PC ~ $ mysqladmin -u root -p create restore;
+
+nishant@nishant-HP-430-Notebook-PC ~ $ mysql -u root -p restore < accounts.sql;  
+

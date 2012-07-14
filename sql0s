@@ -1,0 +1,39 @@
+mysql> CREATE TABLE testing_table (name varchar(20), contact_name varchar(20), roll_no char(10));
+
+mysql> INSERT INTO testing_table values ('Ethan Mascranus', 'ethan', '1234567890');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from testing_table;
++-----------------+--------------+------------+
+| name            | contact_name | roll_no    |
++-----------------+--------------+------------+
+| Ethan Mascranus | ethan        | 1234567890 |
++-----------------+--------------+------------+
+1 row in set (0.00 sec)
+
+mysql> ALTER TABLE testing_table DROP COLUMN name;
+
+mysql> select * from testing_table;
++--------------+------------+
+| contact_name | roll_no    |
++--------------+------------+
+| ethan        | 1234567890 |
++--------------+------------+
+1 row in set (0.00 sec)
+
+mysql> ALTER TABLE testing_table CHANGE  contact_name  user_name varchar(20);
+
+mysql> ALTER TABLE testing_table ADD first_name varchar(10);
+
+mysql> ALTER TABLE testing_table ADD last_name varchar(10);
+
+mysql> ALTER TABLE testing_table MODIFY roll_no int(10);
+
+mysql> select * from testing_table;
++-----------+------------+------------+-----------+
+| user_name | roll_no    | first_name | last_name |
++-----------+------------+------------+-----------+
+| ethan     | 1234567890 | NULL       | NULL      |
++-----------+------------+------------+-----------+
+1 row in set (0.00 sec)
+
