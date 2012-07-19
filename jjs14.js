@@ -15,7 +15,32 @@ var add_button_cell = new_product.insertCell(2);
 
 var title = document.createElement('p');
 title.id = "title" + i;
-//title.class = 'title';
+title.addClass('title');
+title.innerHTML = 
+
+var info = document.createElement('p');
+info.addClass('about');
+
+var category = document.createElement('p');
+category.addClass('category');
+category.innerHTML = 'Category:' + products[i].category;
+
+var image = document.createElement('img');
+image.id = "img" + i;
+image.src = products[i].image;
+
+var price = document.createElement('p');
+price.addClass('price');
+price.innerHTML = 'Price';
+
+var unit_price = document.createElement('span');
+unit_price.id = "price" + i;
+unit_price.innerHTML = products[i].price;
+price.appendChild(unit_price);
+
+title_cell.appendChild(title);
+title_cell.appendChild(title);
+
 }
 }
 
