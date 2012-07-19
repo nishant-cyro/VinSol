@@ -1,4 +1,24 @@
 
+var products = [
+               {"title":"Apple Macbook Pro", "category":"Computers", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"2299.99", "image":"http://dl.dropbox.com/u/88337953/images1.jpeg" },
+               {"title":"Sony VAIO", "category":"Computers", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"2699.99", "image":"http://dl.dropbox.com/u/88337953/images2.jpeg" },
+               {"title":"Canon Digital Rebel XT", "category":"Camera", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"550", "image":"http://dl.dropbox.com/u/88337953/images3.jpeg" }
+               ];
+
+function createProductCart()
+{
+for(var i=0; i<products.length; i=i+1) {
+var new_product = document.getElementById('product_table').insertCell(document.getElementById('product_table').length);
+var title_cell = new_product.insertCell(0);
+var quantity_cell = new_product.insertCell(1);
+var add_button_cell = new_product.insertCell(2);
+
+var title = document.createElement('p');
+title.id = "title" + i;
+//title.class = 'title';
+}
+}
+
 function appear(to_appear, to_dissappear) {
     document.getElementById("table" + to_appear).style.display = "block";
     document.getElementById("carts" + to_appear).style.backgroundColor = "gray";
