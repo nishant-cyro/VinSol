@@ -1,3 +1,5 @@
+$(document).ready( function() {
+
     console.log('1. Searching');
 
     var $div_module = $('div.module');
@@ -25,4 +27,5 @@
 
     var $odd_table_rows = $('table tr:odd');
     console.log('1.6 All the odd rows of table are: ', $odd_table_rows);
-
+ 
+});

@@ -38,20 +38,21 @@ li a:focus
 {
   background-color:gray;
 }
-#table1, #mytable
+
+#product_table, #mytable
 {
   display:block;
   clear:both;
 }
 
-#table2
+#cart_table
 {
   display:none;
   clear:both;
 }
 
 
-#table2
+#cart_table
 {
   width:1000px;
   height:400px;
@@ -59,13 +60,13 @@ li a:focus
   border:1px solid black;
 }
 
-#table2 tr
+#cart_table tr
 {
   background-color:gray;
   text-align:left;
 }
 
-#table2 td,th
+#cart_table td,th
 {
   border:1px solid black;
   border-bottom:none;
@@ -73,12 +74,12 @@ li a:focus
   width:150px;
 }
 
-#table2 input[type="text"]
+#cart_table input[type="text"]
 {
   size:10px;
 }
 
-#table2 td:first-child,th:first-child
+#cart_table td:first-child,th:first-child
 {
   width:400px;
 }
@@ -95,7 +96,7 @@ li a:focus
   margin-top:0;
 }
 
-#table1
+#product_table
 {
   width:1000px;
   border:1px solid black;
@@ -104,19 +105,19 @@ li a:focus
   overflow:auto;
 }
 
-#table1 tr
+#product_table tr
 {
   background-color:gray;
   margin-top:20px;
   width:990px;
 }
 
-#table1 tr>td,tr>th
+#product_table tr>td,tr>th
 {
   width:195px;
 }
 
-#table1 td:first-child,th:first-child
+#product_table td:first-child,th:first-child
 {
   width:600px;
   font-size:12px;
@@ -171,3 +172,7 @@ img
   margin-left:50px;
 }
 
+#product-tab
+{
+background-color:gray;
+}

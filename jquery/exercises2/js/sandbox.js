@@ -1,3 +1,6 @@
+    
+$(document).ready( function() {
+
     console.log('2. Traversing');
 
     console.log('2.1 Alt attribute of image tags');
@@ -16,7 +19,7 @@
     console.log('2.3 Current class is added to', $list_items_added_current);
    
     var $select_specials = $('#specials select');
-    $next_submit = $select_specials.parent('li').next('li').children('input[type="submit"]');
+    $next_submit = $select_specials.parent('li').parent('ul').find('input[type="submit"]');
     console.log('2.4 Submit button next to Select', $next_submit);
 
     var $first_list_item_slideshow = $('#slideshow li:first');
@@ -26,3 +29,4 @@
     console.log('2.5 Disabled class is added to its sibblings', $sibbling_first_list_item);
 
 
+});

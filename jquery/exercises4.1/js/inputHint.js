@@ -1,4 +1,7 @@
 
+$(document).ready( function() {
+
+
     console.log('4.1 Create An Input Hint');
 
     $input_search = $('input[name="q"]');
@@ -22,3 +25,4 @@
     });
 
 
+});

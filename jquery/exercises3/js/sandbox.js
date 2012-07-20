@@ -1,3 +1,6 @@
+
+$(document).ready( function() {
+
     console.log('3. Manipulating');
   
     for(var i=0; i<5; i=i+1) {
@@ -23,3 +26,4 @@
     $('img').first().clone().appendTo(new_div_module);
     console.log('3.5 Image is cloned to a newly appended div.module', new_div_module);
 
+});

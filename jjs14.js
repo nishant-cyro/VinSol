@@ -1,132 +1,205 @@
 
+var checkout;
+
 var products = [
-               {"title":"Apple Macbook Pro", "category":"Computers", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"2299.99", "image":"http://dl.dropbox.com/u/88337953/images1.jpeg" },
-               {"title":"Sony VAIO", "category":"Computers", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"2699.99", "image":"http://dl.dropbox.com/u/88337953/images2.jpeg" },
-               {"title":"Canon Digital Rebel XT", "category":"Camera", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"550", "image":"http://dl.dropbox.com/u/88337953/images3.jpeg" }
+               {"id":"1", "title":"Apple Macbook Pro", "category":"Computers", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"2299.99", "image":"http://dl.dropbox.com/u/88337953/images1.jpeg", "quantity":"0" },
+               {"id":"1", "title":"Sony VAIO", "category":"Computers", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"2699.99", "image":"http://dl.dropbox.com/u/88337953/images2.jpeg", "quantity":"0" },
+               {"id":"1", "title":"Canon Digital Rebel XT", "category":"Camera", "info":"The Intel Core 2 duo powering Macbook Pro is basically two processor built into single chip.", "price":"550", "image":"http://dl.dropbox.com/u/88337953/images.jpeg", "quantity":"0" }
                ];
 
-function createProductCart()
-{
-for(var i=0; i<products.length; i=i+1) {
-var new_product = document.getElementById('product_table').insertCell(document.getElementById('product_table').length);
-var title_cell = new_product.insertCell(0);
-var quantity_cell = new_product.insertCell(1);
-var add_button_cell = new_product.insertCell(2);
+var carts = [
+             ];
 
-var title = document.createElement('p');
-title.id = "title" + i;
-title.addClass('title');
-title.innerHTML = 
+var count = 0;
 
-var info = document.createElement('p');
-info.addClass('about');
+function createProductCart() {
+    for(var i = 0; i < products.length; i = i + 1) {
+        var new_product = document.getElementById('product_table').insertRow(document.getElementById('product_table').rows.length);
+        var title_cell = new_product.insertCell(0);
+        var quantity_cell = new_product.insertCell(1);
+        var add_button_cell = new_product.insertCell(2);
 
-var category = document.createElement('p');
-category.addClass('category');
-category.innerHTML = 'Category:' + products[i].category;
+        var title = document.createElement('p');
+        title.id = "title" + i;
+        title.setAttribute('class', 'title');
+        title.innerHTML = products[i].title;
 
-var image = document.createElement('img');
-image.id = "img" + i;
-image.src = products[i].image;
+        var info = document.createElement('p');
+        info.setAttribute('class', 'about');
+        info.innerHTML = products[i].info;
 
-var price = document.createElement('p');
-price.addClass('price');
-price.innerHTML = 'Price';
+        var category = document.createElement('p');
+        category.setAttribute('class', 'category');
+        category.innerHTML = 'Category:' + products[i].category;
 
-var unit_price = document.createElement('span');
-unit_price.id = "price" + i;
-unit_price.innerHTML = products[i].price;
-price.appendChild(unit_price);
+        var image = document.createElement('img');
+        image.id = "img" + i;
+        image.src = products[i].image;
 
-title_cell.appendChild(title);
-title_cell.appendChild(title);
+        var price = document.createElement('p');
+        price.setAttribute('class', 'price');
+        price.innerHTML = 'Price:';
 
+        var unit_price = document.createElement('span');
+        unit_price.id = "price" + i;
+        unit_price.innerHTML = products[i].price;
+        price.appendChild(unit_price);
+
+        title_cell.appendChild(image);
+        title_cell.appendChild(title);
+        title_cell.appendChild(info);
+        title_cell.appendChild(category);
+        title_cell.appendChild(price);
+
+        var quantity = document.createElement('input');
+        type = 'text';
+        quantity.id = 'quantity' + i;
+        quantity.size = '3';
+        quantity_cell.innerHTML = 'Quantity:';
+        quantity_cell.appendChild(quantity);
+
+        var add_button = document.createElement('input');
+        add_button.type = 'button';
+        add_button.id = '' + i;
+        add_button.value = 'Add Cart';
+        add_button.setAttribute('onclick', 'addCart(this)');
+        add_button_cell.appendChild(add_button);
+    }
+    checkout = document.getElementById('total');
 }
-}
 
-function appear(to_appear, to_dissappear) {
-    document.getElementById("table" + to_appear).style.display = "block";
-    document.getElementById("carts" + to_appear).style.backgroundColor = "gray";
-    document.getElementById("table" + to_dissappear).style.display = "none";
-    document.getElementById("carts" + to_dissappear).style.backgroundColor = "silver";
-    document.getElementById("mytable").style.display = document.getElementById("table1").style.display;
-}
 
-function updateCart(quantity)
-{
-    var id = quantity.id.replace("quantitysec2",'');
-    var price = document.getElementById("pricesec2" + id); 
-    var sub = document.getElementById("subsec2" + id);
-    var total = document.getElementById("total");
+function createMyCart(id) {
+    var new_cart = document.getElementById('cart_table').insertRow(document.getElementById('cart_table').rows.length);
+    var product_cell = new_cart.insertCell(0);
+    var price_cell = new_cart.insertCell(1);
+    var quantity_cell = new_cart.insertCell(2);
+    var subtotal_cell = new_cart.insertCell(3);
+    var remove_button_cell = new_cart.insertCell(4);
 
-    total.value = total.value - sub.innerHTML; 
-    sub.innerHTML = price.innerHTML * quantity.value;
-    sub.innerHTML = new Number(sub.innerHTML).toFixed(2);
-    total.value = eval(total.value + "+" + sub.innerHTML);
-}
 
-function removeCart(button) {
-    var sub = document.getElementById("subsec2" + button.id);
+    var image = document.createElement('img');
+    image.src = carts[id].image;
+    image.height = '50';
+    image.width = '50';
 
-    document.getElementById("total").value = eval(document.getElementById("total").value - sub.innerHTML);
-    var element = document.getElementById("rsec2" + button.id);
-    document.getElementById("carts2").innerHTML = "My Carts(" + eval(element.parentNode.rows.length+ "- 2") +")";
-    element.parentNode.removeChild(element);
+    var title = document.createElement('p');
+    title.id = "title2" + id;
+    title.setAttribute('class', 'title');
+    title.innerHTML = carts[id].title;
     
+    product_cell.appendChild(image);
+    product_cell.appendChild(title);     
+
+    var price = document.createElement('p');
+    price.id = "pricesec2" + id;
+    price.innerHTML = carts[id].price;
+    price_cell.appendChild(price);
+
+
+    var quantity = document.createElement('input');
+    quantity.type = 'text';
+    quantity.id = 'quantitysec2' + id;
+    quantity.name = '' + id;
+    quantity.size = '3';
+    quantity.setAttribute('onchange', 'updateCart(this)');
+    quantity.value = carts[id].quantity;
+    quantity_cell.appendChild(quantity);
+
+    var amount = document.createElement('p');
+    amount.innerHTML = (carts[id].quantity * carts[id].price).toFixed(2);
+    subtotal_cell.appendChild(amount);
+
+
+    var remove_button = document.createElement('input');
+    remove_button.type = 'button';
+    remove_button.id = '' + id;
+    remove_button.value = 'Remove';
+    remove_button.setAttribute('onclick', 'removeCart(this)');
+    remove_button_cell.appendChild(remove_button);
+
+    checkout.value = eval(checkout.value + "+" + amount.innerHTML).toFixed(2);
+    count = count + 1;
+    document.getElementById('cart-tab').innerHTML = 'MyCarts(' + count + ')';
 }
+
+
+function updateMyCart(added) {
+    document.getElementById('quantitysec2'+(added-1)).value = carts[added-1].quantity;
+    document.getElementById('cart_table').rows[added].cells[3].innerHTML = carts[added-1].amount;
+}
+
 
 function addCart(button) {
-    var table = document.getElementById("table2");
-    var flag = false;
-    for (var i = 0; i < table.rows.length; i = i + 1) {
-        if(table.rows[i].id === "rsec2"+button.id) {flag = true;} }
-    if(flag === true) {
-        var quantity2 = document.getElementById("quantitysec2" + button.id);
-        var quantity1 = document.getElementById("quantity" + button.id);
-        var rowsec2 = document.getElementById("rsec2" + button.id);
-        document.getElementById("total").value = document.getElementById("total").value - rowsec2.cells[3].innerHTML;
-        quantity2.value = eval(a.value + "+" + b.value);
-        quantity2.cells[3].innerHTML = quantity1.value * rowsec2.cells[1].innerHTML;
-        document.getElementById("total").value = eval((document.getElementById("total").value) + "+" + (rowsec2.cells[3].innerHTML));
-    } else {
-        var quantity = document.getElementById("quantity" + button.id);
-        var title = document.getElementById("title" + button.id);
-        var price = document.getElementById("price" + button.id);
-        var img = document.getElementById("img" + button.id);
-        var item_to_add = table.insertRow(table.rows.length);
-        var title2 = item_to_add.insertCell(0);
-        var unit_price2 = item_to_add.insertCell(1);
-        var quantity2 = item_to_add.insertCell(2);
-        var amount2 = item_to_add.insertCell(3);
-        var remove2 = item_to_add.insertCell(4);
-        item_to_add.id = "rsec2" + button.id;                 
-        title2.innerHTML = title.innerHTML; 
-
-        var img2 = document.createElement('img');     
-        img2.src = img.src;
-        img2.height = '50';
-        img2.width = '50';
-        title2.appendChild(img2);
-        unit_price2.innerHTML = price.innerHTML;
-        unit_price2.id = "pricesec2" + button.id; 
-        var quan2 = document.createElement("input");
-        quan2.type = 'text';
-        quan2.id = 'quantitysec2' + button.id;
-        quan2.size = '3';
-        quan2.value = quantity.value;
-        quan2.setAttribute('onchange', 'updateCart(this)');        
-        quantity2.appendChild(quan2);
-        amount2.innerHTML = price.innerHTML * quantity.value;
-        amount2.id = "subsec2" + button.id;
-        amount2.innerHTML = new Number(amount2.innerHTML).toFixed(2);
-        var remove = document.createElement('input');
-        remove.type = 'button';
-        remove.id = button.id;
-        remove.value = 'Remove';
-        remove.setAttribute('onclick','removeCart(this)');        
-        remove2.appendChild(remove);
-        document.getElementById("total").value = eval((document.getElementById("total").value) + "+" + (amount2.innerHTML));
-        document.getElementById("carts2").innerHTML = "My Carts(" + eval(table.rows.length + "- 1") +")";
+    var added = -1;
+    products[button.id].quantity = document.getElementById('quantity' + button.id).value;
+    for (var i=0; i<carts.length; i++) {
+        if(carts[i].id === button.id) {
+            added = i;
+        }
+    } 
+    if(added === -1) {
+        newCart(button);
+    } 
+    else {
+        existingCart(added, button);
     }
 }
 
+
+function existingCart(added, button) {
+    checkout.value = (checkout.value - carts[added].amount).toFixed(2);
+    carts[added].quantity = eval(carts[added].quantity + '+' + products[button.id].quantity);
+    carts[added].amount = (carts[added].quantity * carts[added].price).toFixed(2);
+    checkout.value = eval(checkout.value + "+" + carts[added].amount).toFixed(2);
+    updateMyCart(added+1);
+}
+
+
+function newCart(button) {
+    var i = button.id;
+    carts.push({"id":button.id, "title":products[i].title, "price":products[i].price, "quantity":products[i].quantity, "amount":products[i].quantity * products[i].price, "image":products[i].image});
+    createMyCart(carts.length-1);
+}
+
+
+function appear(to_appear, to_dissappear) {
+    document.getElementById(to_appear +"_table").style.display = "block";
+    document.getElementById(to_appear + "-tab").style.backgroundColor = "gray";
+    document.getElementById(to_dissappear +"_table").style.display = "none";
+    document.getElementById(to_dissappear +"-tab").style.backgroundColor = "silver";
+    document.getElementById("mytable").style.display = document.getElementById("product_table").style.display;
+}
+
+function updateCart(quantity) {
+    var added = -1;
+    for(var i=0; i<carts.length; i=i+1) {
+        if(quantity.name === carts[i].id)
+            added = i;
+    }
+
+    if(added !== -1) {
+        checkout.value = (checkout.value - carts[added].amount).toFixed(2);
+        carts[added].quantity = document.getElementById('quantitysec2'+added).value;
+        carts[added].amount = (carts[added].quantity * carts[added].price).toFixed(2);
+        checkout.value = eval(checkout.value + "+" + carts[added].amount).toFixed(2);
+        updateMyCart(added+1);
+    }
+}
+
+function removeCart(button) {
+    var added = -1;
+    products[button.id].quantity = document.getElementById('quantity' + button.id).value;
+    for (var i=0; i<carts.length; i++) {
+        if(carts[i].id === button.id) {
+            added = i;
+        }
+    }
+    if(added !== -1) {
+        checkout.value = (checkout.value - carts[added].amount).toFixed(2);
+        carts.splice(added,1);
+        document.getElementById('cart_table').deleteRow(added+1);
+        count = count - 1;
+        document.getElementById('cart-tab').innerHTML = 'MyCarts(' + count + ')';
+    }
+}

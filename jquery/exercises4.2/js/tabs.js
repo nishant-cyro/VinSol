@@ -1,3 +1,6 @@
+
+$(document).ready( function() {
+
     console.log('4.2 Add tabbed Navigation');
 
     $('div.module').hide();
@@ -22,3 +25,5 @@
 
     $('div.module').first().css('display', 'block');
     $('ul#newList li').first().addClass('current');
+
+});
