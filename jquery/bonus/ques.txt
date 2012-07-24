@@ -1,0 +1,16 @@
+Product Display.
+
+We have product data in csv format and images as follows
+Given the csv file and images at this url - http://dl.dropbox.com/u/628209/exercises/javascript/product_data.tar.gz
+
+Here is the JSON for the same data.. http://dl.dropbox.com/u/628209/exercises/javascript/product.json
+
+Create a page which loads this json data and renders a store front. All the products should be displayed by default. Show a list of Brands in the left. Upon clicking the checkbox in front of a brand, only that particular brand products should be show, hide all others. If no checkbox is selected show products belonging to all brands
+
+Similarly have a filter for color
+
+Also create a toggle for All producs and available products - if user clicks “Available Products” show only products that are not sold out.
+
+The filters should work together - so I should be able to see Only Yellow products of Brand C which are Available.
+
+Finish Exercise

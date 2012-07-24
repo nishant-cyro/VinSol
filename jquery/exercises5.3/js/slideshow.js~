@@ -14,7 +14,7 @@ $(document).ready(function() {
     $total_window.attr('value', length);
     var i = 0;
     setInterval(function() {
-        $current_window.attr('value', (i+1));
+        $current_window.attr('value', i);
         $($slideshow_images[i]).fadeIn(1000,function() {
             $($slideshow_images[i]).fadeOut(1000);
             i = (i + 1) % length;

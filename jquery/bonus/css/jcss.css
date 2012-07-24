@@ -1,0 +1,55 @@
+div#heading
+{
+  width:1000px;
+  background-color:green;
+  border:2px solid blue;
+  text-align:center;
+  font-size:15px;
+  color:white;
+}
+
+div#out
+{
+  height:100%;
+  display:table-row;
+}
+
+div#category
+{
+  width:300px;
+  display:table-cell;
+  background-color:yellow;
+  height:100%;
+  color:black;
+}
+
+div#images
+{
+  margin-left:300px;
+  width:700px;
+  display:table-cell;
+  background-color:orange;
+  text-align:center;
+  font-size:15px;
+  height:100%;
+  color:white;
+}
+
+div#footing
+{
+  clear:left;
+  width:1000px;
+  background-color:blue;
+  border:2px solid blue;
+  text-align:center;
+  font-size:15px;
+  color:white;
+}
+
+
+images
+{
+  height:70px;
+  width:70px;
+}
+
